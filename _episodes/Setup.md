@@ -22,16 +22,36 @@ If you are unfamiliar with any of these concepts, we recommend the following tut
 
 ## Required software
 
+To make the software installation easier we are going to use a virtual machine (VM) that has all the required software preinstalled.
+We will run the VM using VirtualBox which is a tool for managing and running VMs.
+To install, follow the instructions in [here](https://www.virtualbox.org/wiki/Downloads) which contains detailed instructions.
+The following sections will will summarize how to install on common systems.
+If you have an issue refer to the [full instructions](https://www.virtualbox.org/wiki/Downloads) on the website or email Nick (nswainston@swin.edu.au)
+
+### Windows
+
+Download the `.exe` file from [this link](https://download.virtualbox.org/virtualbox/7.0.10/VirtualBox-7.0.10-158379-Win.exe) and follow the setup instructions.
+
+### Linux (Ubuntu 22.04)
+
+How to install is OS dependent so there are more details instructions [here](https://www.virtualbox.org/wiki/Linux_Downloads).
+Here is an example of how to install it for Ubuntu 22.04 by downloading the `.deb` and installing it with `apt`:
+```
+wget https://download.virtualbox.org/virtualbox/7.0.10/virtualbox-7.0_7.0.10-158379~Ubuntu~jammy_amd64.deb
+sudo apt install ./virtualbox-7.0_7.0.10-158379~Ubuntu~jammy_amd64.deb
+```
 
 
-Software requirements
-
-- A integrated development environment ([IDE](https://en.wikipedia.org/wiki/Integrated_development_environment)) or text editor of choice
-  - We recommend [PyCharm](https://www.jetbrains.com/pycharm/) or [Visual Studio Code](https://code.visualstudio.com/)
-- An operating system which gives you a proper command line
-  - For windows this means using something like [gitbash](https://gitforwindows.org/), [WSL](https://docs.microsoft.com/en-us/windows/wsl/install), or the [Anaconda](https://www.anaconda.com/) prompt
-  - For OSX or Linux the regular terminal will be fine
 
 
+### VirtualBox tips and FAQ
 
+VirtualBox can be a bit confusing at first so here are a few tips:
+
+- If you VM fails to start, check the logs (`Ctrl + L`) for clues why.
+If you see an error like `HM: HMR3Init: Attempting fall back to NEM: VT-x is disabled in the BIOS for all CPU modes`
+you have to change your BIOS settings to enable virtualization technology (e.g. for [ASUS motherboard](https://www.asus.com/us/support/FAQ/1045141/))
+- You can use Right Ctrl to use VirtualBox [shortcuts](https://defkey.com/oracle-vm-virtualbox-shortcuts#54716)
+- To make use of your full screen resolution open `View` (top left), then `Virtual Screen 1` and click `Scale to 100%`.
+Then once you change the window to full screen it should use your full screen resolution
 
