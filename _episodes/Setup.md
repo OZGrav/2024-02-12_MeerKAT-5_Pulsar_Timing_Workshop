@@ -40,6 +40,7 @@ Here is an example of how to install it for Ubuntu 22.04 by downloading the `.de
 wget https://download.virtualbox.org/virtualbox/7.0.10/virtualbox-7.0_7.0.10-158379~Ubuntu~jammy_amd64.deb
 sudo apt install ./virtualbox-7.0_7.0.10-158379~Ubuntu~jammy_amd64.deb
 ```
+{: .language-bash}
 
 
 

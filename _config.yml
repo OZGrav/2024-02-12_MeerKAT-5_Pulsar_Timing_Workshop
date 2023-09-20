@@ -154,3 +154,15 @@ exclude:
 
 # Turn on built-in syntax highlighting.
 highlighter: rouge
+
+episode_order:
+# Day 1
+  - Setup
+  - Introduction
+# Day 2
+  - PulsarData
+  - ToAs
+  - Tempo2
+# Day 3
+  - SinglePulsarNoise
+  - GWSearch
