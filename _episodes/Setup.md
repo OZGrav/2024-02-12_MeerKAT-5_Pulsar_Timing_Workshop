@@ -10,6 +10,24 @@ keypoints:
 - "How to install software"
 ---
 
+
+## File download (DO BEFORE ARRIVING)
+
+For the workshop you will need to download a large (~10 GB) `.ova` file which contains the virtual machine (VM) that we will be using.
+Because of it's large size it's important to download it before the workshop.
+
+To download it use:
+```
+curl -O  "ftp://elwood.ru.ac.za/pub/geyer/NWU_pulsartiming/virtual_box/pulsarVM.ova"
+```
+{: .language-bash}
+
+or if you don't have `curl` installed you can use `wget`:
+```
+wget ftp://elwood.ru.ac.za/pub/geyer/NWU_pulsartiming/virtual_box/pulsarVM.ova
+```
+{: .language-bash}
+
 ## Assumed knowledge
 
 This course assumes that you have basic proficiency with the command line / bash terminal, a text editor and simple Python scripting.
@@ -20,7 +38,7 @@ If you are unfamiliar with any of these concepts, we recommend the following tut
 - Python scripting [SWC Lesson](http://swcarpentry.github.io/python-novice-gapminder/), [ADACS Lesson](https://adacs.org.au/courses/introduction-to-python/)
 
 
-## Required software
+## Installing VirtualBox
 
 To make the software installation easier we are going to use a virtual machine (VM) that has all the required software preinstalled.
 We will run the VM using VirtualBox which is a tool for managing and running VMs.
@@ -43,6 +61,14 @@ sudo apt install ./virtualbox-7.0_7.0.10-158379~Ubuntu~jammy_amd64.deb
 {: .language-bash}
 
 
+## Using Virtual Box
+
+Once you have VirtualBox installed you can open it to open the `.ova` file that you downloaded earlier:
+ - Click `File` (top left) then `Import Appliance...`
+ - Click the folder icon and navigate to the `.ova` file you downloaded earlier
+ - All the default setting are fine so just click yes until it starts `Importing appliance ...`
+ - Once it's done you should see a `pulsarVM` VM in the left hand side of the VirtualBox window, click on it and then click `Start` (top right)
+ - The VM will start up, click `Debian GNU/Linux` or wait a few seconds then you should VM window and the terminal
 
 
 ### VirtualBox tips and FAQ
