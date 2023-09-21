@@ -16,10 +16,18 @@ keypoints:
 In this lesson we will go over how to interact with pulsar data.
 We will go over the different types of data, how to plot them and how to clean them.
 
+The data we will use for this lesson is in the `pulsar_data` directory so move to the directory before following alone:
+
+```
+cd /home/pulsar/pulsar_data_lesson
+```
+{: .language-bash}
 
 
 ## Pulsar data types
 
+Pulsar data are typically stored as a three-dimensional array of pulse profiles the axes being time (sub-integrations), observing frequency (channels) and polarization.
+Each data file (typically termed as archives) have attributes (metadata) that describe the pulsar observation.
 Pulsar data can be broadly sorted into two types, "raw voltage" which is the time series data as it comes off the telescope and "folded" which has been folded and dedisperesed using a timing ephemeris.
 
 Some formats for raw voltage files include `PSRFITS`, `PSRDADA` and `VDIF`.
