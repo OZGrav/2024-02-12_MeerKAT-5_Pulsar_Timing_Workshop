@@ -386,7 +386,8 @@ Some of the common types we will go over soon.
 First we should explain some of the other `psrplot` commands.
 
 You can preprocess the archives before plotting with the `-j` option.
-You can use the following commands:
+The pre-processing is done with the `psrsh` command and you can find the full list of options with `psrsh -H`.
+The following commands are the most common ones:
  - `T` Time scrunch to one subint
  - `F` Frequency scrunch to one channel
  - `p` Polarisation scrunch to total intensity
@@ -444,10 +445,14 @@ psrplot -p b -jT -D J1903-7051_bandpass.png/png J1903-7051_2022-07-17-22:44:02_z
 
 
 
-## Cleaning the data
 
+## RFI cleaning
 
-### RFI cleaning
+While most telescopes are situated in radio quiet zones, it is impossible to remove all sources of RFI.
+For this reason, it is important to remove RFI from your data before analysis.
+The `J1903-7051_2022-07-17-22:44:02_zap.ar` archive has already been RFI cleaned and we can see in the bandpass which frequencies were flagged:
+
+![J1903-7051_bandpass](../fig/PulsarData/J1903-7051_bandpass.png)
 
 Mention options
 
