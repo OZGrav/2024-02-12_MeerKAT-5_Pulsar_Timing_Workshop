@@ -36,6 +36,7 @@ If you are unfamiliar with any of these concepts, we recommend the following tut
 - (linux) command line / bash [SWC Lesson](https://swcarpentry.github.io/shell-novice/), [ADACS Lesson](https://adacs.org.au/courses/introduction-to-bash/)
 - command line text editor ([emacs](https://www.linuxfordevices.com/tutorials/linux/emacs-editor-tutorial)/[vim](https://www.tutorialspoint.com/vim/index.htm#)/[nano](https://www.linuxfordevices.com/tutorials/linux/nano-editor-in-linux))
 - Python scripting [SWC Lesson](http://swcarpentry.github.io/python-novice-gapminder/), [ADACS Lesson](https://adacs.org.au/courses/introduction-to-python/)
+- Statistics [SARAO lesson](https://www.sarao.ac.za/lessons/an-introduction-to-data-analysis/)
 
 
 ## Installing VirtualBox
