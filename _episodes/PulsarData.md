@@ -454,6 +454,108 @@ The `J1903-7051_2022-07-17-22:44:02_zap.ar` archive has already been RFI cleaned
 
 ![J1903-7051_bandpass](../fig/PulsarData/J1903-7051_bandpass.png)
 
+We have a uncleaned file that we can use the different technquies on to do our best to clean the archive.
+We will be using `J0955-6150_2020-02-16-04:17:20_raw.ar` as our example file which has signifficant RFI in it which we can when we plot it with the following command:
+
+```
+psrplot -p freq -jTDp -D J0955-6150_phase_freq_raw.png/png J0955-6150_2020-02-16-04:17:20_raw.ar
+```
+{: .language-bash}
+
+![J0955-6150_phase_freq_raw](../fig/PulsarData/J0955-6150_phase_freq_raw.png)
+
+### Paz
+
+[`paz`](https://psrchive.sourceforge.net/manuals/paz/) is a psrchive command that can do some automated and manual RFI removal.
+You can use it manually or as a part of other commands.
+
+What I mean by manually is you can use it to create a new archive with a command like so:
+
+```
+paz -r -e paz_median J0955-6150_2020-02-16-04\:17\:20_raw.ar
+```
+{: .language-bash}
+
+where `-r` zap channels using median smoothed difference and `-e paz_median` outputs a new file ending in `.paz_median`.
+
+You can then plot this with the following command:
+
+```
+psrplot -p freq -jTDp -D J0955-6150_phase_freq_median.png/png J0955-6150_2020-02-16-04:17:20_raw.paz_median
+```
+{: .language-bash}
+
+Or I can produce the same result by addind the `,"zap median` to the psrplot command to do this in one go (note that I'm using the original `.ar` file)
+
+```
+psrplot -p freq -jTDp,"zap median" -D J0955-6150_phase_freq_median.png/png J0955-6150_2020-02-16-04:17:20_raw.ar
+```
+{: .language-bash}
+
+Both of these methods will create the following output:
+
+![J0955-6150_phase_freq_median](../fig/PulsarData/J0955-6150_phase_freq_median.png)
+
+As you can see it removed enough RFI that we can now see the pulsar but there is still some major RFI that was missed.
+
+### Pazi
+
+For interactive RFI removal we can use [`pazi`](https://psrchive.sourceforge.net/manuals/pazi/) which will create a window where we can select which frequency or time range we wish to flag.
+
+If we run the `pazi` command with no options it will output the following help:
+
+```
+pazi
+
+A user-interactive program for zapping subints, channels and bins.
+Usage: pazi [filename]
+
+Options.
+  -h                         This help page.
+
+Mouse and keyboard commands.
+  zoom:                      left click, then left click
+  reset zoom:                'r'
+
+Modes:
+  phase-vs-frequency:        'f'
+  phase-vs-time:             't'
+  binzap-integration:        'b' (must be in phase-vs-time mode)
+
+  center pulse:              'c'
+  toggle dedispersion:       'd'
+
+  zap:                       right click
+  zap (multiple):            left click, then right click
+  undo last:                 'u'
+
+  In binzap mode:
+    -  zoom and reset zoom as above
+    -  zap phase range:      left click, then right click
+    -  mow the lawn:         'm'
+    -  prune the hedge:      'x' to start box, 'x' to finish
+
+  save (<filename>.pazi):    's'
+  quit:                      'q'
+  print paz command:         'p'
+```
+{: .output}
+
+You'll want to run `pazi <file_name>` then click `f` to go to phase-vs-frequency mode then left click and the start of a frequency range then right click and the end of the range that you want to zap.
+When you are done press `s` and `q` and it will make a new file ending in `.pazi`.
+
+> ## Remove as much RFI as you can
+> You can estimate the signal-to-noise ratio of an archive with the following command
+> ~~~
+> psrstat -j FTp -c snr=pdmp -c snr <archive_file_here>
+> ~~~
+> {: .bash}
+>
+> Try using pazi to remove as much RFI as you can which keeping the S/N high.
+> Whoever gets the highest S/N wins!
+>
+{: .challenge}
+
 Mention options
 
 Show how to output bandpass
@@ -464,11 +566,23 @@ Show how to output bandpass
 
 ## Decimating
 
-define nchan and nsub
+You can decimate or scrunch your data along the time, frequency and polarisation axis.
+A major benfit of this is that it makes the files much smaller.
+Another benefit is that the files will be in an easier format to make ToAs later on (convered in future lessons).
 
+The wording used commonly used to describe how the data has been decimated is "nchan" for number of frequency channels and "nsub" for number of time sub-integrations.
+The following command demonstrates how to use [`pam`](https://psrchive.sourceforge.net/manuals/pam/)
 
-## psrstat
+```
+pam --setnchn <nchan> --setnsub <nsub> <-p> -e <nchan>ch<-p>p<nsub>t.ar <archive_file>
+```
+{: .bash}
 
-## Organisation
+where you use `-p` if you want to polarisation scrunch and `-e <nchan>ch<-p>p<nsub>t.ar` is my personal preference of how to label the file to make it clear how it has been decimated.
+So for example if you wanted 16 frequency channels and 8 time sub-integrations:
 
-Notes, dump history maybe make a trello board. Make repeatable workflow scripts
+```
+pam --setnchn 16 --setnsub 8 -e 16ch4p8t.ar J1903-7051_2022-07-17-22:44:02_zap.ar
+```
+{: .bash}
+
