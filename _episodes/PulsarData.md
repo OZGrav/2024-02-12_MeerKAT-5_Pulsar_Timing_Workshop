@@ -30,6 +30,20 @@ wget  "ftp://elwood.ru.ac.za/pub/geyer/NWU_pulsartiming/data/Session1_pulsar_dat
 ```
 {: .language-bash}
 
+Then untar it with
+
+```
+tar -xvf SA_teaching.tar.gz
+```
+{: .language-bash}
+
+And move into the directory it creates with
+
+```
+cd pulsar_data
+```
+{: .language-bash}
+
 
 
 
