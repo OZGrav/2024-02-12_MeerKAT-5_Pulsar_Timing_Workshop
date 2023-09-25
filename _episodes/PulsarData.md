@@ -16,12 +16,21 @@ keypoints:
 In this lesson we will go over how to interact with pulsar data.
 We will go over the different types of data, how to plot them and how to clean them.
 
-The data we will use for this lesson is in the `pulsar_data` directory so move to the directory before following alone:
+The data we will use for this lesson can be downloaded with the following command:
 
 ```
-cd /home/pulsar/pulsar_data_lesson
+curl -O  "ftp://elwood.ru.ac.za/pub/geyer/NWU_pulsartiming/data/Session1_pulsar_data.tar.gz"
 ```
 {: .language-bash}
+
+or
+
+```
+wget  "ftp://elwood.ru.ac.za/pub/geyer/NWU_pulsartiming/data/Session1_pulsar_data.tar.gz"
+```
+{: .language-bash}
+
+
 
 
 ## Pulsar data types
