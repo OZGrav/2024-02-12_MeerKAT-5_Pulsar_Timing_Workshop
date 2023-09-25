@@ -1,14 +1,16 @@
 ---
 title: "Interacting with Pulsar Data"
 teaching: 60
-exercises: 60
+exercises: 30
 questions:
-- ""
+- "How do I inspect my pulsar data"
+- "How can I remove RFI from my observations"
 objectives:
-- ""
+- "Learn the software used to process pulsars"
 keypoints:
-- ""
-- ""
+- "There are different types of pulsar data and different ways to process them"
+- "Removing RFI can be difficult but will significantly improve your data"
+- "Keeping your data organised will make your work easier"
 ---
 
 # Introduction
@@ -579,12 +581,33 @@ When you are done press `s` and `q` and it will make a new file ending in `.pazi
 >
 {: .challenge}
 
-Mention options
 
-Show how to output bandpass
+## PDMP
 
-#Chalenge can you remove this bit of RFI
+[`pdmp`](https://psrchive.sourceforge.net/manuals/pdmp/) is a tool for find the optimal period and DM of a pulsar.
+This is useful when you have a pulsar that has not been accurately timed (perhaps a candidate or recent discovery).
+If the phase-vs-time or the phase-vs-freq plots don't show a vertical profile (you see a slope) then this may mean the period (if you see an angle in the phase-vs-time) or the DM (if you see a sweep in the phase-vs-freq).
 
+It is a time consuming command so it may not finish during the work shop.
+You can run it like this
+
+```
+pdmp -g J1903-7051_2022-07-17-22:44:02_zap_pdmp.png/png J1903-7051_2022-07-17-22:44:02_zap.ar
+```
+{: .bash}
+
+And here is what it will output:
+
+
+![J1903-7051_pdmp](../fig/PulsarData/J1903-7051_2022-07-17-22_zap_pdmp.png)
+
+You can see that the pulse profile looks vertical in both frequency and time (although they already were).
+It also outputs an estimated period and DM in the plot and in the `pdmp.posn` and `pdmp.per`.
+
+BC is barycentric which is based on the centre of the solarsystem and what is used by pulsar ephemerises
+TC is topocentric which is based on the earth's position.
+Because the aparent/observed period is different depending on the position of the earth as it orbits the as the change in distance and relative speed causes an effect similar to the doppler effect.
+Pulsar software will convert barycentric period to topocentric period for you so always give it the barycentric period.
 
 
 ## Decimating
@@ -608,4 +631,18 @@ So for example if you wanted 16 frequency channels and 8 time sub-integrations:
 pam --setnchn 16 --setnsub 8 -e 16ch4p8t.ar J1903-7051_2022-07-17-22:44:02_zap.ar
 ```
 {: .bash}
+
+## Organisation
+
+Dealing with data can be a bit confusing and you may get a bit lost if you don't keep your data organised.
+The following is a few tips that will hopefully make your life easier.
+
+- Use good names for your files. Verbose long names are better than short confusing names. You should include the pulsar name and the date it was observed as well as other things like if you have removed RFI and if and how you have decimated it.
+- Make a script to automate your work. Once you have worked out how to process your data, you can make a script that will run all those commands for you which will save you time and make sure you don't forget a step.
+- Use a kanban board (to do list) to track your processing. If you have a lot of data to process it may start to ger hard to keep track of what you have and haven't done. One way to make this easier is to use a kanban board like [Trello](https://trello.com/) (see [this](https://adacs-australia.github.io/research_project_management_training/03-trello/index.html) lesson on how to use it)
+- Take notes on the commands you used. Taking notes will make it clearer what steps you took and may help you if you forgot how to use a command. An easy way to do this is to dump the last 100 commands you ran with the following command `history | tail -n 100 > my_commands.txt`
+
+## Done!
+
+Our data has been cleaned, checked and formated so we are ready to start making ToAs and do some timing!
 
