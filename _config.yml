@@ -158,7 +158,6 @@ highlighter: rouge
 episode_order:
 # Day 1
   - Setup
-  - Introduction
 # Day 2
   - PulsarData
   - ToAs
