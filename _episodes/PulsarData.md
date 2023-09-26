@@ -37,7 +37,7 @@ tar -xvf Session1_pulsar_data.tar.gz
 And move into the directory it creates with
 
 ```
-cd pulsar_data
+cd pulsar_data_lesson
 ```
 {: .language-bash}
 
