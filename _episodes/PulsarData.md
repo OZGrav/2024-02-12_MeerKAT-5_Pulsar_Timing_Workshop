@@ -20,12 +20,7 @@ We will go over the different types of data, how to plot them and how to clean t
 
 The data we will use for this lesson can be downloaded with the following command:
 
-```
-curl -O  "ftp://elwood.ru.ac.za/pub/geyer/NWU_pulsartiming/data/Session1_pulsar_data.tar.gz"
-```
-{: .language-bash}
 
-or
 
 ```
 wget  "ftp://elwood.ru.ac.za/pub/geyer/NWU_pulsartiming/data/Session1_pulsar_data.tar.gz"
@@ -35,7 +30,7 @@ wget  "ftp://elwood.ru.ac.za/pub/geyer/NWU_pulsartiming/data/Session1_pulsar_dat
 Then untar it with
 
 ```
-tar -xvf SA_teaching.tar.gz
+tar -xvf Session1_pulsar_data.tar.gz
 ```
 {: .language-bash}
 
