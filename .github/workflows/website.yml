@@ -19,7 +19,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7'
+          ruby-version: '3.0'
           bundler-cache: true
 
       - name: Set up Python
@@ -29,10 +29,7 @@ jobs:
 
       - name: Install GitHub Pages, Bundler, and kramdown gems
         run: |
-          gem install nokogiri -v 1.15.5
-          gem install bundler -v 2.4.22
-          gem install faraday-net_http -v 3.0.2
-          gem install github-pages kramdown kramdown-parser-gfm
+          gem install github-pages bundler kramdown kramdown-parser-gfm
 
       - name: Install Python modules
         run: |
