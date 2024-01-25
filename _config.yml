@@ -53,7 +53,7 @@ pilot: false
 # Most workshops don't use extra pages. More information about extra
 # pages are included in the README:
 # https://github.com/carpentries/workshop-template#creating-extra-pages
-title: "NWU Pulsar Timing Workshop"
+title: "MeerKAT@5 Pulsar Timing Workshop"
 
 #------------------------------------------------------------
 # Incubator workshop settings (only relevant for workshops teaching a lesson
@@ -83,7 +83,7 @@ kind: "workshop"
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
 # Please don't change it: <USERNAME>/<PROJECT> is correct.
-repository: OZGrav/2023-09-25_NWU_Pulsar_Timing_Workshop
+repository: OZGrav/2024_02_12_MeerKAT-5_Pulsar_Timing_Workshop
 
 # Email address, no mailto:
 # (Don't change this -- the contact address for your workshop will be set
