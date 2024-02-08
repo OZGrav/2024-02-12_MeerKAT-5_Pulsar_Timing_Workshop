@@ -13,7 +13,7 @@ keypoints:
 
 ## File download (DO BEFORE ARRIVING)
 
-For the workshop you will need to download a large (~10 GB) `.ova` file which contains the virtual machine (VM) that we will be using.
+For the workshop you will need to download a large (~6 GB) `.ova` file which contains the virtual machine (VM) that we will be using.
 Because of it's large size it's important to download it before the workshop.
 
 To download it use:
