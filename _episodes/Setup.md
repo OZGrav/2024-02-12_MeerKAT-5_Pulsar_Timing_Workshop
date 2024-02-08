@@ -18,13 +18,13 @@ Because of it's large size it's important to download it before the workshop.
 
 To download it use:
 ```
-curl -O  "ftp://elwood.ru.ac.za/pub/geyer/NWU_pulsartiming/virtual_box/pulsarVM.ova"
+curl -O  "ftp://elwood.ru.ac.za/pub/geyer/MKTat5/virtual_box/pulsarVM.ova"
 ```
 {: .language-bash}
 
 or if you don't have `curl` installed you can use `wget`:
 ```
-wget ftp://elwood.ru.ac.za/pub/geyer/NWU_pulsartiming/virtual_box/pulsarVM.ova
+wget ftp://elwood.ru.ac.za/pub/geyer/MKTat5/virtual_box/pulsarVM.ova
 ```
 {: .language-bash}
 
